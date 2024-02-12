@@ -1,7 +1,7 @@
 /** 
  * Prints the calendars of all the years in the 20th century.
  */
-public class Calendar1 {	
+public class Calendar {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
@@ -15,22 +15,28 @@ public class Calendar1 {
 	 */
 	public static void main(String args[]) 
 	{	
-		int sundays = 0;
-		while (year<=1999)
+		int yearNew = Integer.parseInt(args[0]);
+		while (year<=yearNew)
 		{
 			while (month<=12)
 			{
 				while (dayOfMonth<=nDaysInMonth(month,year))
 				{
-					if (((dayOfWeek-1)%7 ==0) && dayOfMonth == 1)
+					if (((dayOfWeek-1)%7 ==0))
 					{
-						sundays++;
+						if (year == yearNew)
 						System.out.println(dayOfMonth+"/"+month+"/"+year+ " Sunday");
 					}
 					else if ((dayOfWeek-1)%7 ==0)
+					{
+						if (year == yearNew)
 						System.out.println(dayOfMonth+"/"+month+"/"+year+ " Sunday");
+					}
 					else
-					System.out.println(dayOfMonth+"/"+month+"/"+year);
+					{	
+						if (year == yearNew)
+						System.out.println(dayOfMonth+"/"+month+"/"+year);
+					}
 					dayOfMonth++;
 					dayOfWeek++;
 				}
@@ -40,7 +46,6 @@ public class Calendar1 {
 			month =1;
 			year++;
 		}
-		System.out.println("During the 20th century, "+sundays+" Sundays fell on the first day of the month");
 	}
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.

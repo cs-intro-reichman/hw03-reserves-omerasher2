@@ -1,7 +1,7 @@
 /** String processing exercise 2. */
 public class UniqueChars {
     public static void main(String[] args) {  
-        String str = "yael played the yokelele";
+        String str = args[0];
         System.out.println(uniqueChars(str));
     }
 
